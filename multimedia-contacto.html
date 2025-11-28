@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Video accesible con subtítulos y audio descriptivo, además de formulario de contacto inclusivo.">
+  <title>Hyrule Vivo | Multimedia y Contacto</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+  <script defer src="scripts.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+  <header>
+    <div class="header-inner">
+      <div class="logo" aria-label="Logotipo de Hyrule Vivo">
+        <div class="logo-symbol" aria-hidden="true">₪</div>
+        <span class="logo-text">Hyrule vivo</span>
+      </div>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="menu-principal">Menú</button>
+      <nav aria-label="Navegación principal">
+        <ul class="nav-list" id="menu-principal" data-nav-list>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="historia.html">Historia</a></li>
+          <li><a href="multimedia-contacto.html" aria-current="page">Multimedia &amp; contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="video" aria-labelledby="video-titulo">
+      <h1 id="video-titulo">Relatos Audiovisuales de Hyrule</h1>
+      <p>La pieza principal condensa atmósferas de Breath of the Wild con sonidos ambientales, campanas lejanas y notas Sheikah. Se entrega con subtítulos sincronizados, controles nativos del navegador y soporte completo para teclado.</p>
+      <p>El contenedor incluye botones de alto contraste que permiten pausar, silenciar y ajustar volumen sin depender de íconos. Cada control cuenta con texto claro y estados de foco evidentes.</p>
+      <h2>Pistas Complementarias</h2>
+      <p>Además del video principal, habilitamos una pista de audio descriptivo proveniente de <code>ZeldaAudioDesc.wav</code>. El botón dedicado permite activar o desactivar la narración sin recargar la página, manteniendo el tiempo exacto del video.</p>
+      <p>Las transcripciones de elementos importantes se enlazan para quienes prefieren leer la escena en vez de reproducirla. También ofrecemos un archivo VTT corregido que replica los diálogos originales con formato accesible.</p>
+      <div class="video-shell" aria-describedby="video-descripcion">
+        <div class="video-accessibility" aria-label="Opciones de accesibilidad del video">
+          <h2>Opciones de accesibilidad</h2>
+          <p class="helper-text">Activa subtítulos, audio descriptivo o ajusta el audio antes de reproducir el video.</p>
+          <div class="video-controls" role="group" aria-label="Controles alternos del video">
+            <button id="playPause" type="button">Reproducir</button>
+            <button id="muteBtn" type="button">Silenciar</button>
+            <label for="volumeControl">Volumen
+              <input id="volumeControl" type="range" min="0" max="1" step="0.05" value="1" aria-label="Control de volumen">
+            </label>
+            <button id="ccToggle" type="button" aria-pressed="true">Desactivar CC</button>
+            <button id="adToggle" type="button" data-ad="off" aria-pressed="false">Activar audio descriptivo</button>
+            <a class="button secondary" href="subtitulos_fixed.vtt" download>Descargar subtítulos</a>
+          </div>
+        </div>
+        <video id="hyruleVideo" controls preload="metadata" aria-describedby="video-descripcion">
+          <source src="ZeldaTrailerCut.mp4" type="video/mp4">
+          <track label="Español (CC)" kind="captions" srclang="es" src="subtitulos_fixed.vtt" default>
+          <track label="Audio descriptivo" kind="descriptions" srclang="es" src="ZeldaAudioDesc.wav">
+          <p>Tu navegador no soporta video embebido. Puedes <a href="ZeldaTrailerCut.mp4">descargar el archivo</a>.</p>
+        </video>
+      </div>
+    </section>
+
+    <section aria-labelledby="laboratorio-sonoro">
+      <h1 id="laboratorio-sonoro">Laboratorio Sonoro Sheikah</h1>
+      <p>El laboratorio compila efectos ambientales y notas suaves para sesiones de estudio. Quienes prefieran solo audio pueden activar la pista descriptiva desde el control anterior o descargar fragmentos para escucharlos sin conexión.</p>
+      <p>Utiliza los atajos de teclado del navegador (barra espaciadora, teclas de flecha) para manipular el video. Todos los elementos mantienen orden lógico de tabulación.</p>
+      <h2>Recursos Relacionados</h2>
+      <p>Visita la sección de crónicas para leer cómo se integran estos sonidos en eventos históricos. También recomendamos este <a href="https://soundcloud.com/nintendo" target="_blank" rel="noopener">archivo sonoro externo</a> para ampliar la colección.</p>
+      <p>No olvides compartir tus mezclas a través del formulario de contacto inferior. Cada propuesta se revisa manualmente para garantizar accesibilidad.</p>
+      <div class="section-cta">
+        <a class="button" href="historia.html#cronicas">Ir a crónicas</a>
+        <a class="button secondary" href="index.html">Volver al inicio</a>
+      </div>
+    </section>
+
+    <section id="contacto" aria-labelledby="contacto-titulo">
+      <h1 id="contacto-titulo">Formulario de contacto</h1>
+      <p>Comparte comentarios, solicitudes de adaptación o colaboraciones artísticas. Respondemos dentro de 48 horas y priorizamos mensajes relacionados con accesibilidad.</p>
+      <p>Todos los campos son obligatorios e indican su estado de forma visual y mediante etiquetas para lectores de pantalla. Puedes navegar usando solo teclado sin perder el foco.</p>
+      <h2>Envíanos tu mensaje</h2>
+      <p>Completa la información con claridad para que el equipo pueda ubicar la sección del sitio que deseas mejorar. Especifica si necesitas respuesta en texto plano, audio o ambos.</p>
+      <p>También puedes escribirnos directamente a <a href="mailto:ecos@hyrulevivo.org">ecos@hyrulevivo.org</a> si prefieres tu propio cliente de correo.</p>
+      <form class="form-shell" aria-describedby="instrucciones-formulario">
+        <p id="instrucciones-formulario" class="helper-text">Todos los campos marcados con <span class="required-badge" aria-hidden="true">Req.</span> son obligatorios.</p>
+        <label for="nombre">Nombre
+          <span class="required-badge">Req.</span>
+          <input id="nombre" name="nombre" type="text" required aria-required="true" aria-describedby="nombre-ayuda">
+        </label>
+        <p id="nombre-ayuda" class="helper-text">Escribe cómo deseas ser saludado.</p>
+
+        <label for="correo">Correo electrónico
+          <span class="required-badge">Req.</span>
+          <input id="correo" name="correo" type="email" required aria-required="true" aria-describedby="correo-ayuda">
+        </label>
+        <p id="correo-ayuda" class="helper-text">Usaremos este correo para responder en máximo 48 horas.</p>
+
+        <label for="mensaje">Mensaje
+          <span class="required-badge">Req.</span>
+          <textarea id="mensaje" name="mensaje" required aria-required="true" aria-describedby="mensaje-ayuda"></textarea>
+        </label>
+        <p id="mensaje-ayuda" class="helper-text">Háblanos de tu experiencia usando nuestra página web o solicitudes para más información de The Legend of Zelda.</p>
+
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <small>Gracias por explorar las historias sonoras de Hyrule Vivo.</small>
+      <small>Sitio optimizado para teclado, contraste y lectores de pantalla (WCAG 2.2 AA).</small>
+    </div>
+  </footer>
+
+  <div id="formModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-content" tabindex="-1">
+      <h2 id="modalTitle">Mensaje enviado exitosamente.</h2>
+      <button id="modalConfirm" type="button">Confirmar</button>
+    </div>
+  </div>
+</body>
+</html>
